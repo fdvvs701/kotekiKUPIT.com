@@ -21,59 +21,34 @@
 ---
 ## Ось невеликий приклад мого коду 
 
-<!DOCTYPE html>
-<html lang="uk">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Мій перший сайт</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f0f8ff;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
+// Програма для генерації випадкового числа та перевірки відгадки
+function guessNumber() {
+    const numberToGuess = Math.floor(Math.random() * 10) + 1; // число від 1 до 10
+    let attempts = 3;
+
+    console.log("Я загадав число від 1 до 10. Спробуй відгадати!");
+
+    while (attempts > 0) {
+        const userGuess = parseInt(prompt("Введи своє число:"));
+        
+        if (userGuess === numberToGuess) {
+            console.log("🎉 Вітаю! Ти відгадав число!");
+            return;
+        } else if (userGuess < numberToGuess) {
+            console.log("Твій варіант менший за загадане число.");
+        } else {
+            console.log("Твій варіант більший за загаданe число.");
         }
-        .container {
-            text-align: center;
-            background-color: #ffffff;
-            padding: 50px;
-            border-radius: 15px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-        }
-        h1 {
-            color: #0077cc;
-        }
-        p {
-            color: #333333;
-            font-size: 18px;
-        }
-        button {
-            padding: 10px 20px;
-            font-size: 16px;
-            background-color: #0077cc;
-            color: white;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
-        button:hover {
-            background-color: #005fa3;
-        }
-    </style>
-</head>
-<body>
-    <div class="container">
-        <h1>Привіт! 👋</h1>
-        <p>Це мій перший вебсайт на HTML та CSS.</p>
-        <button>Натисни мене</button>
-    </div>
-</body>
-</html>
+
+        attempts--;
+        console.log(`Залишилось спроб: ${attempts}`);
+    }
+
+    console.log(`На жаль, ти не відгадав. Число було ${numberToGuess}.`);
+}
+
+// Виклик функції
+guessNumber();
+
 --
 ✨ Завжди радий новим проєктам та співпраці!
