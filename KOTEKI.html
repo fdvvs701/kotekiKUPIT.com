@@ -83,14 +83,32 @@ hr {
   
   
   
-  <script>
-  <!-- СЮДИ ПИШЕМО ДЖСКРП -->
+ <script>
+// Лічильник покупок
+let count = 0;
 
+// Знаходимо всі кнопки "Купити"
+const buttons = document.querySelectorAll("button");
 
+// Перебираємо кожну кнопку
+buttons.forEach((btn) => {
+    btn.addEventListener("click", () => {
 
+        // Збільшуємо кількість покупок
+        count++;
 
-    
-  </script>
+        // Пишемо повідомлення
+        alert("Ви купили котєка! 🐱\nВсього покупок: " + count);
+
+        // Додаємо підсвітку вибраного елемента
+        const li = btn.parentElement;
+        li.style.background = "#ffefd5";
+        li.style.border = "2px solid orange";
+        li.style.padding = "10px";
+    });
+});
+</script>
+
 </body>
 </html>
 
