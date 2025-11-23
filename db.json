@@ -1,5 +1,11 @@
 {
   "users": [
-1321
+	  {
+		  "id": 1,
+		  "name": "Denys",
+		  "surname": "Mudryk",
+		  "photo_url": "",
+		  "balance": 10000
+	  }
   ]
 }
