@@ -7,6 +7,13 @@
 		  "photo_url": "",
 		  "balance": 10000
 	  }
+	  {
+		  "id": 7,
+		  "name": "Andriy",
+		  "surname": "Pleshikk",
+		  "photo_url": "",
+		  "balance": 17000
+	  }
   ]
 }
 {
