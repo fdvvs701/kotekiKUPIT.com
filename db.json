@@ -1,24 +1,119 @@
-{
-  "users": [
-	  {
-		  "id": 1,
-		  "name": "Denys",
-		  "surname": "Mudryk",
-		  "photo_url": "",
-		  "balance": 10000
-	  }
-	  {
-		  "id": 2,
-		  "name": "Andriy",
-		  "surname": "Pleshikk",
-		  "photo_url": "",
-		  "balance": 17000
-	  }
- 
-	  {
-	  "id": 3,
-	  "name": "Nazar",
-	  "surname": "grofchuk",
-	  "photo_url":"https://raw.githubus...",
-	  "balance":2000
-	  } ]
+<!doctype html>
+<html lang="uk">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Коти — HTML / CSS / Java в одному файлі</title>
+  <meta name="description" content="Заготовка сайту про котів: HTML + CSS + Java (показ коду + завантаження .java)." />
+  <style>
+    :root{--bg:#f7f6fb;--card:#fff;--accent:#ff6b6b;--muted:#4b4b5a}
+    body{font-family:Inter,system-ui,Segoe UI,Roboto,Arial;margin:0;background:var(--bg);color:var(--muted)}
+    .wrap{max-width:1000px;margin:28px auto;padding:18px}
+    header{display:flex;justify-content:space-between;align-items:center}
+    .logo{font-size:1.4rem}
+    .grid{display:grid;grid-template-columns:1fr 360px;gap:18px;margin-top:16px}
+    .card{background:var(--card);padding:14px;border-radius:10px;box-shadow:0 6px 18px rgba(16,24,40,0.06)}
+    pre{background:#0b1220;color:#dbeafe;padding:12px;border-radius:8px;overflow:auto}
+    .small{font-size:0.9rem;color:#6b6b75}
+    button{padding:8px 12px;border-radius:8px;border:0;cursor:pointer}
+    .accent{background:linear-gradient(90deg,var(--accent),#ffb3b3);color:#fff}
+    @media(max-width:880px){.grid{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="logo">🐱 Сайт про котів — HTML / CSS / Java</div>
+      <div class="small">В одному файлі: візуальна частина + приклад Java-коду (завантаження)</div>
+    </header>
+
+    <div class="grid">
+      <main class="card">
+        <h2>Галерея (JS використовується для взаємодії)</h2>
+        <p class="small">JS тут виконує динаміку: показ картинок, модальне вікно, завантаження Java-файлу.</p>
+
+        <div id="gallery" style="display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin-top:8px">
+          <div style="border-radius:10px;overflow:hidden"><img src="https://placekitten.com/600/420" style="width:100%;display:block" alt="cat"/></div>
+          <div style="border-radius:10px;overflow:hidden"><img src="https://placekitten.com/601/420" style="width:100%;display:block" alt="cat"/></div>
+        </div>
+
+        <hr style="margin:12px 0;opacity:0.06" />
+
+        <h3>Java — приклад коду</h3>
+        <p class="small">Java не виконується в браузері як JS. Тут ми просто показуємо код і даємо кнопку для завантаження .java файлу, який ви можете скомпілювати локально.</p>
+
+        <pre id="javaCode">// Cat.java
+public class Cat {
+    private String name;
+    private int age;
+
+    public Cat(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
+
+    public void meow() {
+        System.out.println(name + " каже: Мяу!");
+    }
+
+    public static void main(String[] args) {
+        Cat kitty = new Cat("Мурчик", 3);
+        kitty.meow();
+        System.out.println("Вік: " + kitty.age + " роки");
+    }
+}
+</pre>
+
+        <div style="display:flex;gap:8px;margin-top:8px">
+          <button class="accent" id="downloadJava">Завантажити Cat.java</button>
+          <button id="showHow">Як запустити Java</button>
+        </div>
+
+        <div id="how" style="margin-top:12px;display:none" class="small card">
+          <strong>Інструкція (локально):</strong>
+          <ol>
+            <li>Зберегти завантажений файл у папку, наприклад <code>Cat.java</code>.</li>
+            <li>Відкрити термінал (Command Prompt / Terminal) у тій папці.</li>
+            <li>Скомпілювати: <code>javac Cat.java</code></li>
+            <li>Запустити: <code>java Cat</code></li>
+          </ol>
+          <p class="small">Потрібно мати встановлену JDK (Java Development Kit). Якщо немає — встановіть з офіційного сайту Oracle або OpenJDK.</p>
+        </div>
+
+      </main>
+
+      <aside class="card">
+        <h3>Що тут робимо</h3>
+        <ul>
+          <li class="small">HTML/CSS — верстка та стиль.</li>
+          <li class="small">JavaScript — відповідає за динаміку сторінки і збереження Java-файлу.</li>
+          <li class="small">Java — показаний як текст + можливість скачати джерело; його потрібно компілювати окремо.</li>
+        </ul>
+
+        <hr style="opacity:0.06" />
+        <h4>Порада</h4>
+        <p class="small">Якщо хочеш — можу додати приклад Java, який читає/записує дані з файлу, або структуру Maven/Gradle.</p>
+      </aside>
+    </div>
+
+    <footer style="margin-top:18px;text-align:center;color:#6b6b75">
+      © <span id="year"></span> — Приклад HTML/CSS/Java
+    </footer>
+  </div>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    const javaText = document.getElementById('javaCode').textContent;
+    document.getElementById('downloadJava').addEventListener('click', ()=>{
+      const blob = new Blob([javaText], {type:'text/plain;charset=utf-8'});
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a'); a.href = url; a.download = 'Cat.java'; document.body.appendChild(a); a.click(); a.remove(); URL.revokeObjectURL(url);
+    });
+
+    document.getElementById('showHow').addEventListener('click', ()=>{
+      const how = document.getElementById('how'); how.style.display = how.style.display === 'none' ? 'block' : 'none';
+    });
+  </script>
+</body>
+</html>
