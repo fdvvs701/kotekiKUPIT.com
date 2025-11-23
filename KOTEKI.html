@@ -9,29 +9,80 @@
   
   
   <style>
+<style>
 body {
-    background-color: #fff7e6; /* ніжний теплий фон */
-    font-family: "Arial", sans-serif; /* основний шрифт */
-    color: #333333; /* темний текст */
+    background: #00ffea; /* кислотний фон */
+    font-family: "Comic Sans MS", cursive; /* тупість максимального рівня */
+    color: #000;
     margin: 0;
-    padding: 20px;
+    padding: 10px;
 }
 
 h1, h2 {
-    color: #d16e00; /* оранжевий колір заголовків */
-    font-family: "Trebuchet MS", sans-serif;
-}
-
-ul li {
+    color: #ff0000; /* Червоний бо красиво */
+    text-shadow: 3px 3px yellow; /* тінь як у WordArt */
+    font-size: 48px;
     margin-bottom: 5px;
 }
 
+ul li {
+    list-style: square;
+    background: #ffff00;
+    border: 5px dashed #ff00ff;
+    margin: 15px 0;
+    padding: 10px;
+    font-size: 20px;
+    transform: rotate(1deg); /* легка тупа кривизна */
+}
+
+img {
+    border: 10px groove lime;
+    display: block;
+    margin-bottom: 10px;
+}
+
+button {
+    background: #ff8800;
+    border: 5px solid black;
+    padding: 10px 20px;
+    font-size: 20px;
+    cursor: pointer;
+    font-weight: bold;
+    animation: blink 0.5s infinite;
+}
+
+button:hover {
+    background: #00ff00;
+}
+
+@keyframes blink {
+    0% { opacity: 1; }
+    50% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
 hr {
+    height: 10px;
+    background: repeating-linear-gradient(
+        45deg,
+        red,
+        red 10px,
+        blue 10px,
+        blue 20px
+    );
     border: none;
-    height: 1px;
-    background-color: #d16e00;
-    margin: 30px 0;
-    
+    margin: 40px 0;
+}
+
+p {
+    font-size: 24px;
+    background: #ffb6c1;
+    padding: 10px;
+    border: 3px dotted blue;
+    transform: rotate(-1deg);
+}
+</style>
+
   </style>
 </head>
 <body>
