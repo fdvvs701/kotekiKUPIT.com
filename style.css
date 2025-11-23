@@ -1,8 +1,23 @@
 body {
-    background-color: #f0f0f0; /* фон */
-    font-family: Arial, sans-serif; /* шрифт */
-    color: #333333; /* колір тексту */
+    background-color: #fff7e6; /* ніжний теплий фон */
+    font-family: "Arial", sans-serif; /* основний шрифт */
+    color: #333333; /* темний текст */
     margin: 0;
-    padding: 0;
+    padding: 20px;
 }
 
+h1, h2 {
+    color: #d16e00; /* оранжевий колір заголовків */
+    font-family: "Trebuchet MS", sans-serif;
+}
+
+ul li {
+    margin-bottom: 5px;
+}
+
+hr {
+    border: none;
+    height: 1px;
+    background-color: #d16e00;
+    margin: 30px 0;
+}
