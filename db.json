@@ -9,3 +9,12 @@
 	  }
   ]
 }
+{
+  "users": [
+	  "id": 3,
+	  "name": "Nazar",
+	  "surname": "grofchuk",
+	  "photo_url":"https://raw.githubus...",
+	  "balance":2000
+  ]
+}
