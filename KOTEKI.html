@@ -135,31 +135,52 @@ p {
   
   
   
- <script>
-// Лічильник покупок
+<script>
+// Кошик
 let count = 0;
+const cart = document.createElement("div");
+cart.id = "cart";
+cart.textContent = "Кошик: 0 котєків";
+document.body.appendChild(cart);
 
-// Знаходимо всі кнопки "Купити"
-const buttons = document.querySelectorAll("button");
+// Кнопки
+document.querySelectorAll("button").forEach((btn) => {
+    btn.addEventListener("click", (e) => {
 
-// Перебираємо кожну кнопку
-buttons.forEach((btn) => {
-    btn.addEventListener("click", () => {
-
-        // Збільшуємо кількість покупок
         count++;
+        cart.textContent = "Кошик: " + count + " котєків";
 
-        // Пишемо повідомлення
-        alert("Ви купили котєка! 🐱\nВсього покупок: " + count);
-
-        // Додаємо підсвітку вибраного елемента
+        // Підсвітка
         const li = btn.parentElement;
-        li.style.background = "#ffefd5";
+        li.style.background = "#fff4d2";
         li.style.border = "2px solid orange";
         li.style.padding = "10px";
+
+        // ✨ Анімаційне "МЯУ"
+        const meow = document.createElement("div");
+        meow.className = "meow";
+        meow.textContent = "МЯЯЯУ! 😺";
+        meow.style.left = e.pageX + "px";
+        meow.style.top = e.pageY + "px";
+        document.body.appendChild(meow);
+
+        setTimeout(() => meow.remove(), 1000);
+
+        // ❤️ Сердечка при кліку
+        for (let i = 0; i < 4; i++) {
+            const heart = document.createElement("div");
+            heart.className = "heart";
+            heart.textContent = "❤️";
+            heart.style.left = (e.pageX - 10 + Math.random() * 20) + "px";
+            heart.style.top = (e.pageY - 10 + Math.random() * 20) + "px";
+            document.body.appendChild(heart);
+
+            setTimeout(() => heart.remove(), 1000);
+        }
     });
 });
 </script>
+
 
 </body>
 </html>
