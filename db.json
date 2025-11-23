@@ -8,20 +8,17 @@
 		  "balance": 10000
 	  }
 	  {
-		  "id": 7,
+		  "id": 2,
 		  "name": "Andriy",
 		  "surname": "Pleshikk",
 		  "photo_url": "",
 		  "balance": 17000
 	  }
-  ]
-}
-{
-  "users": [
+ 
+	  {
 	  "id": 3,
 	  "name": "Nazar",
 	  "surname": "grofchuk",
 	  "photo_url":"https://raw.githubus...",
 	  "balance":2000
-  ]
-}
+	  } ]
