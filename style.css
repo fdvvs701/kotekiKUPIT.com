@@ -1,1 +1,8 @@
+body {
+    background-color: #f0f0f0; /* фон */
+    font-family: Arial, sans-serif; /* шрифт */
+    color: #333333; /* колір тексту */
+    margin: 0;
+    padding: 0;
+}
 
