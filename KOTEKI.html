@@ -90,6 +90,25 @@ p {
   padding: 5px;
   margin: 3px 0;
 }
+#search {
+  padding: 8px;
+  width: 250px;
+}
+
+#suggestions {
+  margin-top: 10px;
+}
+
+.suggestion {
+  padding: 6px;
+  background: #f2f2f2;
+  margin-bottom: 5px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.suggestion:hover {
+  background: #e0e0e0;
+}
 
 
   </style>
@@ -97,7 +116,21 @@ p {
 <body>
   <input type="text" id="search" placeholder="Пошук котиків..." />
 <div id="cats">
-  
+  <input type="text" id="search" placeholder="Пошук котиків..." />
+<div id="suggestions"></div>
+
+<!-- Дані котиків -->
+<script>
+  const cats = [
+    "Білий котик",
+    "Чорний кіт",
+    "Рудий котик",
+    "Кіт у капелюсі",
+    "Біло-рожевий котик",
+    "Білий пухнастий кіт"
+  ];
+</script>
+
 
   <h1>Купити котєкі без смс і реєстрації</h1>
 
@@ -201,6 +234,31 @@ document.querySelectorAll("button").forEach((btn) => {
     items.forEach(item => {
         const text = item.textContent.toLowerCase();
         item.style.display = text.includes(query) ? 'block' : 'none';
+    });
+});
+document.getElementById('search').addEventListener('input', function () {
+    const query = this.value.toLowerCase();
+    const box = document.getElementById('suggestions');
+    box.innerHTML = ""; // очистити попередні результати
+
+    if (query.trim() === "") return;
+
+    const filtered = cats.filter(cat =>
+        cat.toLowerCase().includes(query)
+    );
+
+    filtered.forEach(item => {
+        const div = document.createElement('div');
+        div.className = "suggestion";
+        div.textContent = item;
+
+        // натискаєш — вставляє у поле пошуку
+        div.onclick = () => {
+            document.getElementById('search').value = item;
+            box.innerHTML = "";
+        };
+
+        box.appendChild(div);
     });
 });
 
