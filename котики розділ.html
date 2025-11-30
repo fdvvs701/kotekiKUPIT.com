@@ -1,1 +1,76 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<title>Каталог котов</title>
+<style>
+  section { 
+    page-break-after: always; 
+    margin-bottom: 40px; 
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+  }
+  h2 { margin-bottom: 5px; }
+  img {
+    width: 300px;
+    border-radius: 10px;
+    margin-top: 10px;
+  }
+</style>
+</head>
+<body>
+
+<div id="container"></div>
+
+<script>
+const cats = [
+    ["Абиссинская кошка", "Felis catus", "https://static.wikia.nocookie.net/catandcats/images/d/db/Abyssinian1.jpg/revision/latest/scale-to-width-down/800?cb=20150715074525&path-prefix=ru"],
+    ["Бенгальская кошка", "Felis catus", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQPYcf5X899Yv7-gBhrmEV93yxBx3NJk1vMq-RUy_Oprako__kNklJ4V9_N7oQXfymaENY&usqp=CAU"],
+    ["Британская короткошерстная", "Felis catus", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQn8iuQj-4FNqeUzoDRjgkcjUMhd3RAV0YtoT9NPHJAl1RPCm0n842GBVnQSVXtWjydoz8&usqp=CAU"],
+    ["Мейн-кун", "Felis catus", "https://i.pinimg.com/736x/1d/05/ce/1d05cec35edf50beeec7b8395d7b57dd.jpg"],
+    ["Сфинкс", "Felis catus", "https://www.google.com/url?sa=i&url=https%3A%2F%2Fru.pinterest.com%2Fideas%2F%25D0%25BA%25D0%25B0%25D0%25BD%25D0%25B0%25D0%25B4%25D1%2581%25D0%25BA%25D0%25B8%25D0%25B9-%25D1%2581%25D1%2584%25D0%25B8%25D0%25BD%25D0%25BA%25D1%2581%2F958827366356%2F&psig=AOvVaw0m4pwP6_q9KcncnBxzes2I&ust=1764602822246000&source=images&cd=vfe&opi=89978449&ved=0CBUQjRxqFwoTCPjYjvOXmpEDFQAAAAAdAAAAABAE"],
+    ["Русская голубая", "Felis catus", "https://i.pinimg.com/736x/96/5f/55/965f555b8c305f5d03a8be4b5ec4472b.jpg"],
+    ["Норвежская лесная", "Felis catus", "https://i.pinimg.com/736x/88/06/30/8806306871f4b4e64fb2db06e72e0bfb.jpg"],
+    ["Шотландская вислоухая", "Felis catus", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRLeKTsiMP18O0PfV98BlGEHOCWxQiWI-VsnQ&s"],
+    ["Регдолл", "Felis catus", "https://placekitten.com/308/200"],
+    ["Сиамская кошка", "Felis catus", "https://placekitten.com/309/200"],
+    ["Ориентальная кошка", "Felis catus", "https://placekitten.com/310/200"],
+    ["Персидская кошка", "Felis catus", "https://placekitten.com/311/200"],
+    ["Турецкий ван", "Felis catus", "https://placekitten.com/312/200"],
+    ["Девон-рекс", "Felis catus", "https://placekitten.com/313/200"],
+    ["Корниш-рекс", "Felis catus", "https://placekitten.com/314/200"],
+    ["Бурманская кошка", "Felis catus", "https://placekitten.com/315/200"],
+    ["Сибирская кошка", "Felis catus", "https://placekitten.com/316/200"],
+    ["Нибелунг", "Felis catus", "https://placekitten.com/317/200"],
+    ["Манчкин", "Felis catus", "https://placekitten.com/318/200"],
+    ["Тойгер", "Felis catus", "https://placekitten.com/319/200"],
+    ["Пикси-боб", "Felis catus", "https://placekitten.com/320/200"],
+    ["Балинезийская кошка", "Felis catus", "https://placekitten.com/321/200"],
+    ["Сингапура", "Felis catus", "https://placekitten.com/322/200"],
+    ["Американская жесткошерстная", "Felis catus", "https://placekitten.com/323/200"],
+    ["Американская короткошерстная", "Felis catus", "https://placekitten.com/324/200"],
+    ["Экзотическая короткошерстная", "Felis catus", "https://placekitten.com/325/200"],
+    ["Яванская кошка", "Felis catus", "https://placekitten.com/326/200"],
+    ["Хауси", "Гибрид Felis catus × Leptailurus serval", "https://placekitten.com/327/200"],
+    ["Саванна", "Гибрид Felis catus × Leptailurus serval", "https://placekitten.com/328/200"],
+    ["Каракет", "Гибрид Felis catus × Caracal caracal", "https://placekitten.com/329/200"]
+];
+
+const container = document.getElementById("container");
+
+cats.forEach((cat, index) => {
+    const [name, species, imgUrl] = cat;
+
+    const section = document.createElement("section");
+    section.innerHTML = `
+        <h2>${index + 1}. ${name}</h2>
+        <p><strong>Вид:</strong> ${species}</p>
+        <img src="${imgUrl}" alt="${name}">
+    `;
+    container.appendChild(section);
+});
+</script>
+
+</body>
+</html>
 
