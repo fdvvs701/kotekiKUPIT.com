@@ -16,6 +16,81 @@
     border-radius: 10px;
     margin-top: 10px;
   }
+  /* --- Каталог котов (стили в стиле основного сайта) --- */
+
+#container {
+    padding: 60px 5%;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 35px;
+}
+
+/* Карточка породы */
+section {
+    background: white;
+    border-radius: 20px;
+    padding: 25px;
+    box-shadow: var(--shadow);
+    transition: all 0.35s;
+    overflow: hidden;
+    position: relative;
+}
+
+/* Ховер-эффект */
+section:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+}
+
+/* Номер и название породы */
+section h2 {
+    margin-bottom: 12px;
+    font-size: 1.5rem;
+    color: var(--dark);
+}
+
+/* Текст вида */
+section p {
+    font-size: 1rem;
+    margin-bottom: 10px;
+    color: #555;
+}
+
+/* Фото кота */
+section img {
+    width: 100%;
+    border-radius: 15px;
+    object-fit: cover;
+    box-shadow: var(--shadow);
+    transition: transform 0.4s;
+}
+
+/* Масштабирование фото на ховер */
+section:hover img {
+    transform: scale(1.05);
+}
+
+/* Мягкий градиент снизу */
+section::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 60px;
+    background: linear-gradient(to top, rgba(45,48,71,0.2), transparent);
+    pointer-events: none;
+}
+
+/* Анимация появления карточек */
+section {
+    animation: fadeInUp 0.6s ease both;
+}
+
+/* Чтобы карточки входили по одной */
+section:nth-child(odd) { animation-delay: 0.1s; }
+section:nth-child(even) { animation-delay: 0.2s; }
+
 </style>
 </head>
 <body>
